@@ -1,25 +1,25 @@
-import logo from './logo.svg';
 import './App.css';
+import {Photo} from "./Photo";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+export function App() {
+
+    const createPhotos = (count) => {
+        let photos = []
+        for (let i = 1; i < count + 1; i++) {
+            photos.push(`${i}.png`)
+        }
+
+        return photos
+    }
+
+    return (
+        <div className="container">
+            {createPhotos(70).map((p, index) => {
+                return (
+                    <Photo photo={p} index={index}/>
+                )
+            })}
+        </div>
+    )
 }
-
-export default App;
